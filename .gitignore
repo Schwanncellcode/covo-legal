@@ -1,0 +1,6 @@
+.DS_Store
+
+# Claude/graphify tooling config — hardcodes local paths and has nothing
+# to do with the pages this repo publishes. Not for a public repo.
+.claude/
+CLAUDE.md
