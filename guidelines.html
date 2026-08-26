@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Covo - Community Guidelines</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.6; }
+  h1 { color: #E8553A; } h2 { color: #444; margin-top: 34px; } p { margin: 10px 0; }
+  h3 { color: #666; font-size: 15px; margin: 22px 0 6px; }
+  ul { margin: 10px 0; padding-left: 22px; } li { margin: 6px 0; }
+  .date { color: #888; font-size: 14px; }
+  .tier { border-left: 3px solid #E8553A; padding-left: 14px; margin: 20px 0; }
+</style>
+</head>
+<!--
+  WRITTEN AS DESCRIPTION, NOT ASPIRATION. Every "we remove" and "we block" below
+  was read out of the code first, on 26 Aug 2026:
+    app/core/red_flag.py        text categories and severities
+    app/core/moderation.py      image screening allowlist and reject labels
+    app/routers/users.py        report tiers, reasons, what a report does
+    app/routers/admin.py        the enforcement actions that actually exist
+    covo-legal/terms.html       Acceptable Use
+
+  SHAUN — THINGS THIS PAGE DOES NOT CLAIM, BECAUSE NOTHING ENFORCES THEM. Each
+  is a decision for you: enforce it, or leave the page silent as it is now.
+
+  1. suspicious_intent (17 terms) is DETECTED AND THEN DISCARDED everywhere
+     except events. Every scan_fields caller acts only on action == "block";
+     a "flag" result is computed and thrown away. In events it sets is_flagged
+     and nothing else. So the page says nothing about it.
+
+  2. NO WARNING MECHANISM EXISTS. admin.py has ban, suspend, and delete-event.
+     There is no way to warn a user, so the page does not promise one.
+
+  3. NO ADMIN ENDPOINT REMOVES A POST, COMMENT, MESSAGE OR PHOTO. Only events
+     can be deleted by a moderator. The page therefore says a moderator can
+     remove an EVENT, and does not claim posts can be taken down. This is the
+     biggest gap between what a reader would assume and what exists.
+
+  4. NO AUTOMATED ACTION FROM REPORT VOLUME. Ten reports and one report do the
+     same thing: a row, and an email to a person.
+
+  5. NO IN-APP APPEAL. The appeal route below is email, because that is the
+     only route that exists. It is real — a person reads it — so it is not
+     aspirational, but an in-app form would be better.
+
+  6. DIRECT MESSAGES ARE NOT SCANNED, for text or images, and no video is ever
+     screened. The page states this plainly rather than letting readers assume
+     coverage. Saying so is also the honest basis for "report it, because we
+     will not see it otherwise".
+
+  Structure follows the REPORT TAXONOMY in UserProfileScreen.js — Spam/Fake,
+  Harassment/Hate Speech, Threats/Illegal — so somebody reporting something can
+  find the rule they are reporting against. That mapping is the point; keep it
+  if the taxonomy changes.
+-->
+<body>
+<h1>Community Guidelines</h1>
+<p class="date">26 August 2026</p>
+
+<p>Covo is for meeting people in real life. These are the rules that make that possible, what we already do to enforce them, and what happens when someone breaks one.</p>
+
+<p>Nothing here is new. Everything described below is what the app has been doing — this page is us writing it down.</p>
+
+<h2>How this page is organised</h2>
+<p>The three sections below match the three categories you see when you tap <strong>Report</strong> on someone's profile. If you are about to report something, the rule you are reporting against is in the matching section.</p>
+
+<h2>1. Spam and fake profiles</h2>
+<p>Reported as: <strong>Spam</strong>, <strong>Fake Profile</strong>, <strong>Minor Misconduct</strong>.</p>
+<div class="tier">
+<ul>
+<li>Do not pretend to be someone else, or set up a profile for a person who has not agreed to it.</li>
+<li>Do not send unsolicited bulk messages, or post the same promotional content repeatedly.</li>
+<li>Do not create events you have no intention of running.</li>
+<li>Do not run scams, fake ticket sales, fake giveaways, or money-flipping schemes.</li>
+</ul>
+</div>
+<p><strong>What we already do:</strong> scam and fraud language is blocked automatically the moment you try to post it — in event titles and descriptions, community names, descriptions, posts, comments and introductions, forum boards, threads and replies, room titles, and names and usernames. The post is refused; it is not quietly hidden.</p>
+
+<h2>2. Harassment and hate speech</h2>
+<p>Reported as: <strong>Harassment</strong>, <strong>Hate Speech</strong>, <strong>Inappropriate Content</strong>.</p>
+<div class="tier">
+<ul>
+<li>Do not harass, bully, intimidate or repeatedly contact someone who does not want to hear from you.</li>
+<li>Do not attack people for their race, ethnicity, religion, nationality, disability, sex, gender identity or sexual orientation.</li>
+<li>Do not post sexual content, and do not send sexual images to anyone.</li>
+<li>Do not post anyone's private information, or photographs of someone who has asked you not to.</li>
+</ul>
+</div>
+<p><strong>What we already do:</strong> hate speech and sexual-exploitation language is blocked at the point of posting, in all the places listed above. Photographs posted <em>publicly</em> are checked automatically before they are stored — see <a href="#photos">Photos and video</a>.</p>
+<p>You can block anyone at any time. Blocking stops them contacting you or seeing your profile, and you do not need a reason.</p>
+
+<h2>3. Threats and illegal activity</h2>
+<p>Reported as: <strong>Threats of Violence</strong>, <strong>Illegal Activity</strong>, <strong>Dangerous Behaviour</strong>.</p>
+<div class="tier">
+<ul>
+<li>Do not threaten anyone with violence.</li>
+<li>Do not buy, sell, supply or advertise drugs.</li>
+<li>Do not bring weapons to an event, or advertise one where weapons are present.</li>
+<li>Do not use Covo to organise anything illegal.</li>
+<li>Do not sexually exploit anyone, and never involve anyone under 18 in anything on this platform.</li>
+</ul>
+</div>
+<p><strong>What we already do:</strong> language relating to drugs, weapons, violence and threats, and sexual exploitation is blocked automatically at the point of posting, across every surface listed in section 1. If you try to publish it, the post is refused and you are told which category it matched.</p>
+<p>Covo is for people aged 18 and over. We collect date of birth at sign-up, and accounts found to belong to someone under 18 are closed.</p>
+
+<h2 id="photos">Photos and video</h2>
+<p>We think you should know exactly what is checked and what is not, because the answer changes what you should report.</p>
+
+<h3>Checked automatically, before the image is stored</h3>
+<p>Photos posted to <strong>public</strong> places: posts on Explore, profile and cover photos, event banners, community banners and icons, forum Buy and Sell photos, promotion artwork and business logos. These are screened for nudity and sexual activity, gore, self-harm, corpses and similar imagery, hate and extremist symbols, and visible drugs. An image that fails is refused and never saved.</p>
+<p>Ordinary student life is not the target. Drinking, pre-drinks, club nights, going-out outfits, beach trips and combat sport are all allowed — the screening looks for harm, not lifestyle.</p>
+
+<h3>Not checked automatically</h3>
+<ul>
+<li>Images in direct messages, community chats and channels</li>
+<li>Personal stickers</li>
+<li><strong>All video, everywhere</strong></li>
+</ul>
+<p>Private messages are private, and we have chosen not to scan them. That is a deliberate decision and it has a consequence: <strong>if someone sends you something that breaks these rules in a private message, we will not know unless you tell us.</strong> Report it, and block them.</p>
+
+<h2>If you host an event</h2>
+<p>Hosts are responsible for the accuracy of what they advertise — the location, the time, the description, and the price if there is one. You are responsible for making sure your event is safe and runs as described. Event titles, descriptions and venue names are scanned before an event is published, and a moderator can remove an event.</p>
+
+<h2>What happens when you report something</h2>
+<ul>
+<li>The report is stored and <strong>a person is emailed straight away</strong>. Reports are read by a human being, not scored by a system.</li>
+<li>Reports are graded — minor, serious, or criminal — based on the reason you pick, so the urgent ones stand out.</li>
+<li>Reporting more than once for the same reason about the same person does not add anything. One open report per reason is kept, so nobody can flood the queue.</li>
+<li><strong>The number of reports does not decide anything.</strong> One well-described report is worth more than ten vague ones. The free-text box is the most useful part — tell us what happened.</li>
+<li>We do not tell the person who reported them.</li>
+</ul>
+<p>If you delete your account, reports you <em>made</em> stay, with your identity removed from them. Reports <em>about</em> you are deleted with the account. This is explained in full in our <a href="privacy.html">Privacy Policy</a>.</p>
+
+<h2>What happens if you break a rule</h2>
+<p>Two different things can happen, and it is worth understanding which is which.</p>
+
+<h3>Automatic, and immediate</h3>
+<p>If what you write matches one of the blocked categories, the post is <strong>refused as you submit it</strong>. Nothing is published, nobody is notified, and no record is made against you. It is a door, not a punishment. If you think a block is wrong — and ordinary words do sometimes collide with a rule — email us.</p>
+
+<h3>Decided by a person</h3>
+<p>Everything else follows a report and a human decision. The outcomes available are:</p>
+<ul>
+<li><strong>No action</strong>, if the report does not stand up.</li>
+<li><strong>Removal of an event.</strong></li>
+<li><strong>Temporary suspension.</strong> You keep your account and your data, but cannot sign in until the suspension ends. The app tells you the date.</li>
+<li><strong>A permanent ban</strong>, for the serious end: threats, exploitation, or a pattern that has not stopped.</li>
+</ul>
+<p>Which one depends on what happened, whether it was aimed at a person, and whether it has happened before. Anything involving a threat to someone's safety goes straight to the top of the list.</p>
+
+<h2>Appeals</h2>
+<p>If your account is suspended or banned and you think it is wrong, <strong>email <a href="mailto:covosocialapp@gmail.com">covosocialapp@gmail.com</a> from the address on your account</strong> and say what you think happened. There is no appeal form in the app; a person reads that inbox and will reply.</p>
+<p>Tell us anything we could not have seen — context, screenshots, what led up to it. Decisions get reversed when there is something new to look at, and not otherwise.</p>
+
+<h2>Contact</h2>
+<p>Questions about these guidelines, an appeal, or a block you think is wrong: <a href="mailto:covosocialapp@gmail.com">covosocialapp@gmail.com</a>.</p>
+<p>These guidelines sit alongside our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+</body>
+</html>
