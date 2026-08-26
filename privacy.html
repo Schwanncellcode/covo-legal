@@ -7,45 +7,180 @@
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.6; }
   h1 { color: #E8553A; } h2 { color: #444; margin-top: 30px; } p { margin: 10px 0; }
+  h3 { color: #666; font-size: 14px; letter-spacing: 0.06em; margin: 24px 0 8px; }
+  ul { margin: 10px 0; padding-left: 22px; } li { margin: 6px 0; }
   .date { color: #888; font-size: 14px; }
 </style>
 </head>
+<!--
+  THIS PAGE IS THE WEB COPY OF THE IN-APP PRIVACY POLICY. THEY ARE MEANT TO SAY
+  THE SAME THING. The source of truth is covo-frontend/src/screens/
+  PrivacyPolicyScreen.js; this file mirrors it section for section, with the
+  same numbering so the two can be read side by side. Change one and you must
+  change the other, and the Art 30 record in covo-markdowns/ProjectDocs/
+  art-30-record.md with them. That screen's own header comment says the same.
+
+  WHY THIS MATTERS MORE THAN IT LOOKS: this is the PUBLIC one. It is what the
+  App Store listing links to and what somebody reads BEFORE they download. From
+  8 April to 26 August 2026 it named one processor out of fifteen and described
+  an app that no longer existed, while the in-app version was accurate and
+  current. Accurate in private and wrong in public is the wrong way round.
+
+  THE ONE PLACE THEY LEGITIMATELY DIFFER is section 9. The app text says the
+  APP sets no cookies; this page adds that the PAGE sets none either, which is
+  a statement about a website and has no meaning inside a mobile app. That is
+  the only intentional divergence. Anything else that differs is drift.
+
+  ALSO DELIBERATE: the version and date below are the POLICY's, not this file's.
+  The policy is version 1.5 of 23 August 2026 and did not change on the day this
+  page was rewritten — only the web rendering of it did. Stamping today's date
+  would say the terms changed when they did not, and would make the two surfaces
+  look like two different policies.
+
+  Sentry is deliberately absent. It is not integrated yet, and naming a
+  processor that is not processing is as false as omitting one that is. It
+  lands here, in the app screen, and in the Art 30 record in the same commit
+  that initialises the SDK.
+-->
 <body>
 <h1>Privacy Policy</h1>
-<p class="date">Last updated: April 8, 2026</p>
+<p class="date">Version 1.5 &mdash; 23 August 2026</p>
+<p>This is the same policy shown in the Covo app under Settings. If you spot a difference between the two, the app is not more current than this page &mdash; they are updated together &mdash; but please tell us at <a href="mailto:covosocialapp@gmail.com">covosocialapp@gmail.com</a>.</p>
 
-<p>Covo ("we", "our", "us") operates the Covo mobile application. This policy describes how we collect, use, and protect your information.</p>
 
-<h2>Information We Collect</h2>
-<p>When you create an account, we collect your name, email address, date of birth, and profile information you choose to provide (bio, interests, profile photo, username).</p>
-<p>When you use the app, we collect information about events you create or join, messages you send, communities you participate in, and friend connections you make.</p>
-<p>We may collect device information including push notification tokens to send you alerts about events, messages, and friend requests.</p>
+<h2>1. Who We Are</h2>
+<p>Covo is operated by Covo Social Ltd, a company registered in England and Wales. In this policy, "we", "us", and "Covo" refer to Covo Social Ltd. We are the data controller for personal data collected through the Covo app.</p>
+<p>You can contact us at covosocialapp@gmail.com for any privacy-related questions.</p>
 
-<h2>How We Use Your Information</h2>
-<p>We use your information to provide and improve the Covo app, including: creating and managing your account, displaying your profile to other users, facilitating event discovery and attendance, enabling messaging between users, sending push notifications, and processing payments for event entry fees.</p>
+<h2>2. Information We Collect</h2>
+<p>Information you provide directly:</p>
+<ul>
+<li>Account details: name, username, email address, password (stored hashed), date of birth, profile photo</li>
+<li>Profile details: interests, bio, Instagram or LinkedIn handle (if you choose to link them), emergency contact name and phone number (if you add one)</li>
+<li>Sensitive interests: two of the interests you can choose — Faith &amp; Religion, and Prayer — say something about your religious beliefs. UK data law calls this special category data and holds it to a higher bar. We only store it if you give explicit permission at the moment you pick it, we record which wording you were shown and when, and unticking it removes it straight away with no confirmation step. If you never pick one, we never hold any.</li>
+<li>Event content: events you create or join, messages you send, posts, comments, likes, safety ratings you submit</li>
+<li>Verification data: for university verification, your society invite code; for business verification, your company name and Companies House number; for social verification, links to your public Instagram and LinkedIn profiles</li>
+</ul>
+<p>Information we collect automatically:</p>
+<ul>
+<li>Device information: device type, operating system, app version</li>
+<li>Technical data: IP address, time and date of requests</li>
+<li>Location data: the location of events when you create or join them (this is a core feature — events have places). We do not track your location in the background. When you search for a venue, look up a postcode, or drop a pin on a map, what you typed or the coordinates of that pin are sent from your phone to a mapping provider — see section 5.</li>
+<li>Push notification token: an identifier issued by Expo, used to send you the notifications you have opted into — see section 5.</li>
+</ul>
 
-<h2>Payment Processing</h2>
-<p>Payments are processed securely through Stripe. We do not store your credit card details. Stripe's privacy policy applies to payment transactions.</p>
+<h2>3. How We Use Your Information</h2>
+<p>We use your information to:</p>
+<ul>
+<li>Provide the Covo app, including showing events, enabling messaging and calls, and running communities</li>
+<li>Verify your age (18+) and, where applicable, your university, business, or social verification tier</li>
+<li>Send account emails (verification codes, password resets) and push notifications you have opted into</li>
+<li>Screen publicly posted images for explicit or unsafe content</li>
+<li>Investigate safety reports, enforce our Terms of Service, and comply with legal obligations</li>
+<li>Improve the app (understanding which features are used, fixing bugs)</li>
+</ul>
 
-<h2>Information Sharing</h2>
-<p>Your profile information (name, username, bio, interests, profile photo) is visible to other Covo users. Your email address is never shared with other users. We do not sell your personal data to third parties.</p>
+<h2>4. Legal Basis for Processing (UK GDPR)</h2>
+<p>We process your personal data under the following legal bases:</p>
+<ul>
+<li>Contract: to provide the Covo service you signed up for (account management, events, messages)</li>
+<li>Legal obligation: to comply with UK law, including tax, consumer protection, and safeguarding</li>
+<li>Legitimate interests: to keep the platform safe (image screening, abuse investigation, moderation, retaining safety reports) and to improve the app</li>
+<li>Consent: for optional features like push notifications, linking social accounts, and emergency contacts. You can withdraw consent at any time.</li>
+<li>Explicit consent (Article 9(2)(a)): the only basis we rely on for the sensitive interests described in section 2. Nothing else we do relies on it, and withdrawing it deletes the interest rather than merely switching a setting.</li>
+</ul>
 
-<h2>Data Security</h2>
-<p>We implement security measures including encrypted passwords, secure authentication tokens, rate limiting, and input sanitization to protect your data.</p>
+<h2>5. Who We Share Your Information With</h2>
+<p>We do not sell your personal data and we do not use it for advertising.</p>
+<p>We share data with the service providers below, who process it on our behalf. Each entry says what that provider actually receives.</p>
+<h3>WHERE COVO RUNS</h3>
+<ul>
+<li>Supabase (database) — hosts our main database, in Ireland (EU)</li>
+<li>Railway (app hosting) — runs our backend API, in the Netherlands (EU)</li>
+<li>Cloudinary (images and video) — stores profile and cover photos, event and community banners, and the photos and videos you attach to posts, messages and forum threads</li>
+</ul>
+<h3>SAFETY SCREENING</h3>
+<ul>
+<li>Amazon Web Services — images you post PUBLICLY are automatically checked for explicit or unsafe content using Amazon Rekognition, in Amazon's London (eu-west-2) region. We send the image to Amazon directly from our own servers, and we do it before the image is stored anywhere, so an image that fails is never saved. This covers photos on Explore and in posts, profile and cover photos, event and community banners, community icons, forum photos, and business logos and offers. Images you send PRIVATELY are never sent to Amazon: direct messages, community and channel chats, and personal stickers. Videos are never sent to Amazon. We have opted out of Amazon using these images to improve its machine-learning services.</li>
+</ul>
+<h3>MESSAGING, CALLS AND NOTIFICATIONS</h3>
+<ul>
+<li>LiveKit (calls and live rooms) — when you make a call or join a live audio or video room, your voice and video are routed in real time through LiveKit's servers to the other people in it. Calls and rooms are not recorded or stored, by us or by LiveKit — nothing remains when they end.</li>
+<li>Expo (push notifications and app updates) — we send push notifications through Expo, which passes them to Apple (APNs) or Google (FCM) for delivery. Expo receives your push token and the content of the notification, which for a direct message includes the sender's name and the beginning of the message itself. Separately, the app asks Expo for a JavaScript update each time it starts; that request tells Expo your IP address, device type and app version.</li>
+<li>Resend (email) — delivers emails such as verification codes, password resets and account notices.</li>
+</ul>
+<h3>FEATURES THAT SEND TEXT OR A PLACE ELSEWHERE</h3>
+<ul>
+<li>DeepL (translation) — if you tap to translate a message or a comment, the text of it is sent to DeepL and the translation comes back. This includes the text of private messages. The request goes through our servers, so DeepL receives the text but not your IP address.</li>
+<li>Giphy (GIFs) — GIF searches go through our servers to Giphy, so Giphy receives the search term but not your IP address or device.</li>
+<li>OpenStreetMap (venue search and addresses) — when you search for a venue, or drop a pin while creating an event, your phone contacts OpenStreetMap's Nominatim service directly. It receives what you typed, or the exact coordinates of the pin, and — because the request comes from your phone rather than from our servers — your IP address.</li>
+<li>Komoot (place search) — the same arrangement, through its Photon service, for the place picker.</li>
+<li>Postcodes.io (postcodes) — UK postcode lookups, sent from your phone.</li>
+<li>Apple and Google (maps) — map screens draw their tiles from Apple Maps on iOS and Google Maps on Android, which shows them the area of the map you are looking at.</li>
+<li>Companies House (business verification) — if you verify a business, we send the company name and number to the UK Companies House API to confirm it.</li>
+</ul>
+<h3>PAYMENTS</h3>
+<p>Covo does not currently take payments. Events are free, no card or bank details are collected, and nothing is sent to a payment processor. When paid events launch we will use Stripe to process them, and we will update this policy and tell you before that happens.</p>
+<h3>OTHER PEOPLE</h3>
+<p>Other Covo users will see information you choose to make visible, based on your privacy settings: your name, username, profile photo, bio, interests, and events you host or attend. Private messages are visible to the people you send them to.</p>
+<p>We may disclose information to law enforcement, courts, or regulators where legally required, or where necessary to investigate a safety incident.</p>
 
-<h2>Blocking and Reporting</h2>
-<p>You can block other users to prevent them from viewing your profile or contacting you. You can report users for inappropriate behavior, and our team will review reports.</p>
+<h2>6. International Transfers</h2>
+<p>Where the parts of Covo we operate are located:</p>
+<ul>
+<li>Our database is in Ireland (EU)</li>
+<li>Our backend API runs in the Netherlands (EU)</li>
+<li>Image safety screening runs in Amazon's London region, in the UK</li>
+</ul>
+<p>Some of the providers listed in section 5 are based outside the UK and EU, or may process data outside it — this includes Cloudinary, LiveKit, Expo and Giphy. Where personal data is transferred outside the UK, we rely on the UK International Data Transfer Agreement, the UK Addendum to the EU standard contractual clauses, or another safeguard permitted under UK data protection law.</p>
 
-<h2>Account Deletion</h2>
-<p>You can delete your account at any time from the app settings. This will permanently remove your profile, messages, event history, and all associated data.</p>
+<h2>7. Data Storage &amp; Security</h2>
+<p>We take reasonable technical and organisational measures to protect your personal data. Passwords are stored hashed using bcrypt. Access to production systems is limited and authenticated. Data in transit is protected by TLS.</p>
+<p>No system is perfectly secure. If we become aware of a data breach that affects you, we will notify you and the Information Commissioner's Office where required by law, within 72 hours of becoming aware of it.</p>
 
-<h2>Children's Privacy</h2>
-<p>Covo is not intended for users under 18 years of age. We do not knowingly collect information from children under 18.</p>
+<h2>8. How Long We Keep Your Data</h2>
+<p>This section describes what actually happens, rather than what we intend to build.</p>
+<ul>
+<li>Your account and your content — deleted immediately and permanently when you delete your account. That covers your profile, your messages, your posts and comments, your event attendance, your login history, and the accounts you have blocked or muted. It is not a scheduled job and there is no waiting period.</li>
+<li>Events you are hosting — you cannot delete your account while you are hosting an event that has not happened yet, so that people who signed up are not left without a host. Cancel or complete it first, then delete.</li>
+<li>Safety reports you MADE — kept, but your identity is removed from them. The report, the reason, and anything you wrote stay; the link to you is erased. We do this because a report that the person it concerns could erase by deleting their account would not do its job.</li>
+<li>Safety reports ABOUT you — deleted with your account. There is no longer an account for us to act on, and keeping an allegation about someone who has left protects nobody.</li>
+<li>We do not delete safety reports on a schedule. We keep them for as long as they are needed to keep the platform safe.</li>
+</ul>
+<p>Two things the identity removal does NOT do, said plainly rather than left to be assumed. It is pseudonymisation, not anonymisation: the report remains personal data, and our obligations about it do not end. And it does not touch anything you typed into the report yourself — if you named a person in the text you wrote, that text is unchanged.</p>
+<ul>
+<li>Server logs — our hosting provider keeps request logs for a period it sets, not us. We do not use them to build a profile of you.</li>
+</ul>
+<p>You can get a copy of your data, or delete your account, in the app under Safety &amp; Privacy.</p>
 
-<h2>Changes to This Policy</h2>
-<p>We may update this policy from time to time. We will notify you of significant changes through the app.</p>
+<h2>9. Cookies and Similar Technologies</h2>
+<p>The Covo app does not use browser cookies. We use storage on your device to keep you signed in and to remember your settings.</p>
+<p>Apple, Google and Expo may use device identifiers as part of delivering push notifications and app updates.</p>
+<p>This web page sets no cookies of its own, runs no analytics, and loads nothing from anywhere else &mdash; there are no scripts on it at all. This paragraph has no equivalent in the app, because it is a statement about a website.</p>
 
-<h2>Contact Us</h2>
-<p>If you have questions about this privacy policy, please contact us at support@covo.social.</p>
+<h2>10. Your Rights</h2>
+<p>Under UK GDPR, you have the right to:</p>
+<ul>
+<li>Access a copy of the personal data we hold about you</li>
+<li>Correct inaccurate or incomplete data</li>
+<li>Request deletion of your data (the "right to be forgotten"), subject to the safety-report exception described in section 8</li>
+<li>Restrict or object to certain types of processing</li>
+<li>Receive your data in a portable format</li>
+<li>Withdraw consent for any processing based on consent</li>
+<li>Lodge a complaint with the UK Information Commissioner's Office (ico.org.uk)</li>
+</ul>
+<p>You can exercise most of these rights directly in the app under Safety &amp; Privacy, including downloading your data and deleting your account. For anything else, email covosocialapp@gmail.com and we will respond within one month.</p>
+
+<h2>11. Children</h2>
+<p>Covo is for users aged 18 and over. We verify age at sign-up. If we discover that a user is under 18, we will close the account and delete the associated data. If you believe a child under 18 is using Covo, please contact us at covosocialapp@gmail.com.</p>
+
+<h2>12. Changes to This Policy</h2>
+<p>We may update this policy from time to time. The version number and date at the top of this screen indicate when it was last changed. If we make a material change that affects how we use your data, we will notify you through the app or by email and, where legally required, ask for your renewed consent. Continued use of Covo after a change means you accept the updated policy.</p>
+
+<h2>13. Contact</h2>
+<p>For any privacy question, data access request, or complaint:</p>
+<p>Covo Social Ltd</p>
+<p>covosocialapp@gmail.com</p>
+<p>If you are not satisfied with our response, you can contact the UK Information Commissioner's Office at ico.org.uk or on 0303 123 1113.</p>
 </body>
 </html>
