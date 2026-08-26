@@ -1,0 +1,18 @@
+#!/bin/sh
+# These pages are commitments to users, and two of them make checkable claims
+# about code in other repositories. This hook is the only thing standing between
+# a change over there and a false statement published here.
+set -e
+cd "$(git rev-parse --show-toplevel)"
+
+command -v python3 >/dev/null 2>&1 || exit 0
+
+if [ -f scripts/check_guidelines_claims.py ]; then
+    python3 scripts/check_guidelines_claims.py || {
+        echo "" >&2
+        echo "pre-commit: BLOCKED. guidelines.html claims something the code no" >&2
+        echo "longer does. Fix the page, or fix the code — but do not publish a" >&2
+        echo "moderation policy that is not true." >&2
+        exit 1
+    }
+fi
