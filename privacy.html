@@ -32,8 +32,8 @@
   the only intentional divergence. Anything else that differs is drift.
 
   ALSO DELIBERATE: the version and date below are the POLICY's, not this file's.
-  The policy is version 1.5 of 23 August 2026 and did not change on the day this
-  page was rewritten — only the web rendering of it did. Stamping today's date
+  The policy is version 1.6 of 29 August 2026. It changed that day: Sentry was
+  added as a processor, which is a material change and moves the version. Stamping today's date
   would say the terms changed when they did not, and would make the two surfaces
   look like two different policies.
 
@@ -44,7 +44,7 @@
 -->
 <body>
 <h1>Privacy Policy</h1>
-<p class="date">Version 1.5 &mdash; 23 August 2026</p>
+<p class="date">Version 1.6 &mdash; 29 August 2026</p>
 <p>This is the same policy shown in the Covo app under Settings. If you spot a difference between the two, the app is not more current than this page &mdash; they are updated together &mdash; but please tell us at <a href="mailto:covosocialapp@gmail.com">covosocialapp@gmail.com</a>.</p>
 
 
@@ -85,7 +85,7 @@
 <ul>
 <li>Contract: to provide the Covo service you signed up for (account management, events, messages)</li>
 <li>Legal obligation: to comply with UK law, including tax, consumer protection, and safeguarding</li>
-<li>Legitimate interests: to keep the platform safe (image screening, abuse investigation, moderation, retaining safety reports) and to improve the app</li>
+<li>Legitimate interests: to keep the platform safe (image screening, abuse investigation, moderation, retaining safety reports), to keep it working (diagnosing crashes and errors), and to improve the app</li>
 <li>Consent: for optional features like push notifications, linking social accounts, and emergency contacts. You can withdraw consent at any time.</li>
 <li>Explicit consent (Article 9(2)(a)): the only basis we rely on for the sensitive interests described in section 2. Nothing else we do relies on it, and withdrawing it deletes the interest rather than merely switching a setting.</li>
 </ul>
@@ -119,6 +119,10 @@
 <li>Apple and Google (maps) — map screens draw their tiles from Apple Maps on iOS and Google Maps on Android, which shows them the area of the map you are looking at.</li>
 <li>Companies House (business verification) — if you verify a business, we send the company name and number to the UK Companies House API to confirm it.</li>
 </ul>
+<h3>CRASH AND ERROR REPORTING</h3>
+<ul>
+<li>Sentry (crash and error reporting) — when the app hits an error or crashes, it sends a diagnostic report to Sentry so we can find the fault and fix it. The report contains the error message and the line of our own code it came from, which screen you were on, which of our API addresses were called and whether they succeeded, your device model, operating system and app version, and a numeric account id — that last one so we can tell one person hitting an error fifty times from fifty people hitting it once. It does not contain your name, email address, username or IP address, the content of your messages, or anything you typed: search terms, postcodes and everything after the "?" in a web address are removed on your phone, before the report is sent. Sentry processes this in the EU (Germany), and reports are deleted after 30 days.</li>
+</ul>
 <h3>PAYMENTS</h3>
 <p>Covo does not currently take payments. Events are free, no card or bank details are collected, and nothing is sent to a payment processor. When paid events launch we will use Stripe to process them, and we will update this policy and tell you before that happens.</p>
 <h3>OTHER PEOPLE</h3>
@@ -131,6 +135,7 @@
 <li>Our database is in Ireland (EU)</li>
 <li>Our backend API runs in the Netherlands (EU)</li>
 <li>Image safety screening runs in Amazon's London region, in the UK</li>
+<li>Crash and error reports are in Germany (EU)</li>
 </ul>
 <p>Some of the providers listed in section 5 are based outside the UK and EU, or may process data outside it — this includes Cloudinary, LiveKit, Expo and Giphy. Where personal data is transferred outside the UK, we rely on the UK International Data Transfer Agreement, the UK Addendum to the EU standard contractual clauses, or another safeguard permitted under UK data protection law.</p>
 
