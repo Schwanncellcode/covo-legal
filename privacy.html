@@ -65,7 +65,7 @@
 <ul>
 <li>Device information: device type, operating system, app version</li>
 <li>Technical data: IP address, time and date of requests</li>
-<li>Location data: the location of events when you create or join them (this is a core feature — events have places). We do not track your location in the background. When you search for a venue, look up a postcode, or drop a pin on a map, what you typed or the coordinates of that pin are sent from your phone to a mapping provider — see section 5.</li>
+<li>Location data: the location of events when you create or join them (this is a core feature — events have places). We do not track your location in the background. When you search for a venue, look up a postcode, or drop a pin on a map, what you typed or the coordinates of that pin are sent to our servers, which ask a mapping provider on your behalf — see section 5.</li>
 <li>Push notification token: an identifier issued by Expo, used to send you the notifications you have opted into — see section 5.</li>
 </ul>
 
@@ -113,9 +113,9 @@
 <ul>
 <li>DeepL (translation) — if you tap to translate a message or a comment, the text of it is sent to DeepL and the translation comes back. This includes the text of private messages. The request goes through our servers, so DeepL receives the text but not your IP address.</li>
 <li>Giphy (GIFs) — GIF searches go through our servers to Giphy, so Giphy receives the search term but not your IP address or device.</li>
-<li>OpenStreetMap (venue search and addresses) — when you search for a venue, or drop a pin while creating an event, your phone contacts OpenStreetMap's Nominatim service directly. It receives what you typed, or the exact coordinates of the pin, and — because the request comes from your phone rather than from our servers — your IP address.</li>
+<li>OpenStreetMap (venue search and addresses) — when you search for a venue, or drop a pin while creating an event, the request goes to our servers, and our servers ask the mapping provider. The provider receives what you typed, or the coordinates of the pin — but it receives our server's IP address, not yours, because your phone never contacts it directly.</li>
 <li>Komoot (place search) — the same arrangement, through its Photon service, for the place picker.</li>
-<li>Postcodes.io (postcodes) — UK postcode lookups, sent from your phone.</li>
+<li>Postcodes.io (postcodes) — UK postcode lookups, sent to our servers, which ask the provider on your behalf.</li>
 <li>Apple and Google (maps) — map screens draw their tiles from Apple Maps on iOS and Google Maps on Android, which shows them the area of the map you are looking at.</li>
 <li>Companies House (business verification) — if you verify a business, we send the company name and number to the UK Companies House API to confirm it.</li>
 </ul>
