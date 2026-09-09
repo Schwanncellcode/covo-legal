@@ -31,7 +31,10 @@ BACKEND = os.path.join(GH, 'covo-backend')
 FRONTEND = os.path.join(GH, 'covo-frontend')
 
 RED_FLAG = os.path.join(BACKEND, 'app/core/red_flag.py')
-USERS_PY = os.path.join(BACKEND, 'app/routers/users.py')
+# The report tier map lived in users.py as a local `tier_map`; since it moved to
+# app/core/report_notify.py as TIER_MAP (the frontend's check-report-reasons
+# reads it there), this check follows it. Same die-if-missing posture.
+TIER_PY = os.path.join(BACKEND, 'app/core/report_notify.py')
 PROFILE_JS = os.path.join(FRONTEND, 'src/screens/UserProfileScreen.js')
 PAGE = os.path.join(HERE, 'guidelines.html')
 
@@ -101,13 +104,12 @@ for label, _value in reasons:
     if label.lower() not in body:
         failures.append(f'report reason "{label}" is offered in the app but appears nowhere on the page')
 
-if os.path.exists(USERS_PY):
-    users = open(USERS_PY, encoding='utf-8').read()
-    try:
-        tm = users[users.index('tier_map = {'):users.index('tier = tier_map')]
-    except ValueError:
-        die('users.py no longer contains tier_map')
-    mapped = set(re.findall(r'"(\w+)":\s*"\w+"', tm))
+if os.path.exists(TIER_PY):
+    tiers = open(TIER_PY, encoding='utf-8').read()
+    m = re.search(r'TIER_MAP\s*=\s*\{([\s\S]*?)\}', tiers)
+    if not m:
+        die('report_notify.py no longer contains TIER_MAP')
+    mapped = set(re.findall(r'"(\w+)":\s*"\w+"', m.group(1)))
     offered = {v for _l, v in reasons}
     if mapped != offered:
         failures.append(
