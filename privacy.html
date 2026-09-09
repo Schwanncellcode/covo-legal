@@ -32,8 +32,10 @@
   the only intentional divergence. Anything else that differs is drift.
 
   ALSO DELIBERATE: the version and date below are the POLICY's, not this file's.
-  The policy is version 1.6 of 29 August 2026. It changed that day: Sentry was
-  added as a processor, which is a material change and moves the version. Stamping today's date
+  The policy is version 1.7 of 10 September 2026. It changed that day: a public
+  post now records where the phone was, and Apple's catalogue receives the song
+  search term — a new category of data and a new processor, which is a material
+  change and moves the version (1.6, 29 August, was Sentry). Stamping today's date
   would say the terms changed when they did not, and would make the two surfaces
   look like two different policies.
 
@@ -44,7 +46,7 @@
 -->
 <body>
 <h1>Privacy Policy</h1>
-<p class="date">Version 1.6 &mdash; 29 August 2026</p>
+<p class="date">Version 1.7 &mdash; 10 September 2026</p>
 <p>This is the same policy shown in the Covo app under Settings. If you spot a difference between the two, the app is not more current than this page &mdash; they are updated together &mdash; but please tell us at <a href="mailto:covosocialapp@gmail.com">covosocialapp@gmail.com</a>.</p>
 
 
@@ -65,7 +67,7 @@
 <ul>
 <li>Device information: device type, operating system, app version</li>
 <li>Technical data: IP address, time and date of requests</li>
-<li>Location data: the location of events when you create or join them (this is a core feature — events have places). We do not track your location in the background. When you search for a venue, look up a postcode, or drop a pin on a map, what you typed or the coordinates of that pin are sent to our servers, which ask a mapping provider on your behalf — see section 5.</li>
+<li>Location data: the location of events when you create or join them (this is a core feature — events have places). When you post something publicly, the app asks your phone where you are and records that spot, rounded to about a hundred metres, so your post can appear in the local feed for the city you are in. That location is never shown to anyone — not on the post, not on your profile, not to other users — and we keep it only so we can spot someone faking where they post from. If your location is off, you can still post; the post reaches your friends as normal and simply does not appear in any city's local feed. We do not track your location in the background. When you search for a venue, look up a postcode, drop a pin on a map, or post publicly, what you typed or a rounded version of the coordinates is sent to our servers, which ask a mapping provider on your behalf to name the place — see section 5.</li>
 <li>Push notification token: an identifier issued by Expo, used to send you the notifications you have opted into — see section 5.</li>
 </ul>
 
@@ -113,9 +115,10 @@
 <ul>
 <li>DeepL (translation) — if you tap to translate a message or a comment, the text of it is sent to DeepL and the translation comes back. This includes the text of private messages. The request goes through our servers, so DeepL receives the text but not your IP address.</li>
 <li>Giphy (GIFs) — GIF searches go through our servers to Giphy, so Giphy receives the search term but not your IP address or device.</li>
-<li>OpenStreetMap (venue search and addresses) — when you search for a venue, or drop a pin while creating an event, the request goes to our servers, and our servers ask the mapping provider. The provider receives what you typed, or the coordinates of the pin — but it receives our server's IP address, not yours, because your phone never contacts it directly.</li>
+<li>OpenStreetMap (venue search and addresses) — when you search for a venue, or drop a pin while creating an event, the request goes to our servers, and our servers ask the mapping provider. The provider receives what you typed, or the coordinates of the pin — but it receives our server's IP address, not yours, because your phone never contacts it directly. When you post publicly, a rounded version of where you were (about ten metres) is sent the same way, to name the city; nothing about who you are goes with it.</li>
 <li>Komoot (place search) — the same arrangement, through its Photon service, for the place picker.</li>
 <li>Postcodes.io (postcodes) — UK postcode lookups, sent to our servers, which ask the provider on your behalf.</li>
+<li>Apple Music (song search) — when you add a song to a post, what you type in the song search goes to our servers, which ask Apple's catalogue on your behalf. Apple receives the search words but not your IP address. A song on a post is its name, its artist and a link to Apple Music; Covo does not play music, and nothing is sent to Apple when someone reads your post.</li>
 <li>Apple and Google (maps) — map screens draw their tiles from Apple Maps on iOS and Google Maps on Android, which shows them the area of the map you are looking at.</li>
 <li>Companies House (business verification) — if you verify a business, we send the company name and number to the UK Companies House API to confirm it.</li>
 </ul>
@@ -147,6 +150,7 @@
 <p>This section describes what actually happens, rather than what we intend to build.</p>
 <ul>
 <li>Your account and your content — deleted immediately and permanently when you delete your account. That covers your profile, your messages, your posts and comments, your event attendance, your login history, and the accounts you have blocked or muted. It is not a scheduled job and there is no waiting period.</li>
+<li>Where you were when you posted — kept with the post and deleted with it. Delete the post and it is gone; delete your account and it goes with your posts. It is not a scheduled job.</li>
 <li>Events you are hosting — you cannot delete your account while you are hosting an event that has not happened yet, so that people who signed up are not left without a host. Cancel or complete it first, then delete.</li>
 <li>Safety reports you MADE — kept, but your identity is removed from them. The report, the reason, and anything you wrote stay; the link to you is erased. We do this because a report that the person it concerns could erase by deleting their account would not do its job.</li>
 <li>Safety reports ABOUT you — the report is kept, what you wrote in it is not. We keep that a report happened, its reason and its outcome, because a record of a safety decision has to survive the account it was about; we delete the free-text description, which is the part that describes an identifiable person.</li>
