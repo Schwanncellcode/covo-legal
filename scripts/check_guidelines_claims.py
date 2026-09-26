@@ -95,10 +95,13 @@ if cats.get('suspicious_intent') != 'flag':
     )
 
 # ---- 3 & 4. report reasons ------------------------------------------------
-ui = open(PROFILE_JS, encoding='utf-8').read()
-reasons = re.findall(r"\{ text: '([^']+)', value: '([^']+)' \}", ui)
+# The one reason list (26 Sep 2026): src/utils/reportReasons.js REPORT_REASONS,
+# `{ value: 'x', label: 'Y', tier: 'z' }` — every Report in the app draws it.
+REASONS_JS = os.path.join(FRONTEND, 'src/utils/reportReasons.js')
+ui = open(REASONS_JS if os.path.exists(REASONS_JS) else PROFILE_JS, encoding='utf-8').read()
+reasons = [(label, value) for value, label in re.findall(r"\{ value: '([^']+)', label: '([^']+)', tier: '\w+' \}", ui)]
 if len(reasons) < 9:
-    die(f'found only {len(reasons)} report reasons in UserProfileScreen.js — has the picker changed shape?')
+    die(f'found only {len(reasons)} report reasons in reportReasons.js — has the list changed shape?')
 
 for label, _value in reasons:
     if label.lower() not in body:
@@ -111,10 +114,13 @@ if os.path.exists(TIER_PY):
         die('report_notify.py no longer contains TIER_MAP')
     mapped = set(re.findall(r'"(\w+)":\s*"\w+"', m.group(1)))
     offered = {v for _l, v in reasons}
-    if mapped != offered:
+    # The backend may grade MORE values than the app offers today (older
+    # clients and stored rows carry the previous nine); every value the app
+    # offers must be graded.
+    if not offered <= mapped:
         failures.append(
-            'the app offers report reasons the backend does not grade, or vice versa: '
-            f'{sorted(mapped ^ offered)}'
+            'the app offers report reasons the backend does not grade: '
+            f'{sorted(offered - mapped)}'
         )
 
 # ---- report ---------------------------------------------------------------
